@@ -6,7 +6,6 @@
 class Box
 {
 	struct BoxDimensions { int _width; int _height; int _depth; } _dimensions;
-	//int _inner_boxes = 0;
 	std::vector<Box*> _inner_boxes_list;
 public:
 	Box(int width, int height, int depth)
@@ -75,24 +74,14 @@ public:
 	//Box* begin() { return _inner_boxes_list.begin(); }
 	//Box* end() { return _inner_boxes_list.end(); }
 
-	// Shows ---------------------------------------------------------------
-	//void ShowValues()
-	//{
-	//	//std::cout << this; 
+	 //Shows ---------------------------------------------------------------
+	void ShowValues()
+	{
+		std::cout << "/n_height -> " << _dimensions._height;
+		std::cout << "/n_width -> " << _dimensions._width;
+		std::cout << "/n_depth -> " << _dimensions._depth;
+	}
 
-	//	if (_values_list == nullptr)
-	//	{
-	//		std::cout << "[no data]";
-	//		return;
-	//	}
-
-	//	std::cout << "[ ";
-	//	for (int i = 0; i < _size; i++)
-	//		//out << Box_obj->_values_list[i] << " | ";
-	//		std::cout << _values_list[i] << " | ";
-	//	std::cout << "\b\b]";
-
-	//}
 
 	//Overload operators - reference returned -----------------------------------------	
 
