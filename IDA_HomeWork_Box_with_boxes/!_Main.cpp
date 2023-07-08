@@ -1,8 +1,26 @@
 ﻿// HomeWork template project v 6.0 // 27.06.2023 //
 
-/*
+/**
+
+Основы ООП на языке С++
+
+Перегрузка оператора Квадратные скобки
 
 Задание 1
+Реализовать класс-коллекцию для зранения элементов. в публичном интерфейсе этого
+класса должны содержаться методы для работы с коллекуией и обязательно реализуйте
+операторы для доступа к элементам.
+
+вариант со звёздочкой
+Предусмотреть что если элемент коллекции сам является коллекцией то метод возвращающий
+количество элементов должен возвращать количество учитывающее вложеные элементы.
+Например: если в коллекции 10 элементов 2 из которых коллекции содержащие по 3
+элемента в себе, то вернуться должно число 16 а не 10.
+
+Задание 2
+Изучите какие структуры данных помимо линейного массива и списка существуют и
+составьте их описание на тему для чего они используются в программировании.
+``` задание сдаётся в виде ссылки на репозиторий либо подготовленным архивом проекта 1
 
 */
 
@@ -13,6 +31,7 @@
 #include <algorithm>
 #include <conio.h>
 #include <cassert>
+#include <fstream>
 //My own headers
 #include "Service functions.h"
 #include "MainMenu.h"
@@ -55,10 +74,27 @@ void Task_1(std::string name_of_task)
 	_getch();
 }
 
-//Task 2
+//Task 2 Standart template library container class info
 void Task_2(std::string name_of_task)
 {
+	std::ifstream file_read_obj;
+	do
+	{
+		system("cls");
+		std::cout << "***\t" << name_of_task << "\n";
+		file_read_obj.open("Task_2.txt");
+		if (file_read_obj.is_open())
+		{
+			std::string str_tmp;
+			while (std::getline(file_read_obj, str_tmp))
+				std::cout << str_tmp << '\n';
+		}
+		file_read_obj.close();
+
+		std::cout << "\n\nEsc - exit | any key to continue";
+	} while (_getch() != 27);
 }
+
 
 //Task 3 
 void Task_3() {}
@@ -73,6 +109,7 @@ int main()
 	Main_menu MainMenu;	
 	MainMenu.AddElement("OOP Home Work 08: Overload []");	// Homework name
 	MainMenu.AddElement("Box class demo");
+	MainMenu.AddElement("Standart template library container class info");
 	do 
 	{		
 		MainMenu.Show_menu();
